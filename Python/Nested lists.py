@@ -1,20 +1,18 @@
 if __name__ == '__main__':
-    l = s = 20000000000000
-    nlist = []
     x = []
+    y = []
+    z = []
     for _ in range(int(input())):
         name = input()
         score = float(input())
-        nlist.append([name,score])
-    for i in range(len(nlist)):
-        if l>= nlist[i][1]:
-            l = nlist[i][1]
-    for i in range(len(nlist)):
-        if s>=nlist[i][1] and nlist[i][1]>l:
-            s = nlist[i][1]
-    for i in range(len(nlist)):
-        if s == nlist[i][1]:
-            x.append(nlist[i][0])
-    x.sort()
+        x.append([name,score])
+        z.append(score)
+    a = min(z)
+    while a in z:
+        z.remove(a)
     for i in range(len(x)):
-        print(x[i])
+        if x[i][1] == min(z):
+            y.append(x[i][0])
+    y.sort()
+    for i in y:
+        print(i)
